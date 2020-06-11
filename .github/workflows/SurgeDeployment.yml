@@ -36,4 +36,4 @@ jobs:
     - name: Install surge
       run: npm install -g surge
     - name: Deploy react-app
-      run: surge ./ MY_BootCamp_2020_REACT_APP.surge.sh --token ${{ secrets.REACT_APP_TOKEN }}
+      run: surge ./build MY_BootCamp_2020_REACT_APP.surge.sh --token ${{ secrets.REACT_APP_TOKEN }}
