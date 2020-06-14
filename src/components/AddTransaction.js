@@ -21,7 +21,6 @@ export const AddTransaction = () => {
         //console.log(checkInput(txtTransName.value));
         var result = checkInput(txtTransName.value)
         if( result || result ===undefined ){
-            setText =""
             addTransaction(newTransaction);
         }else{
             alert("Must provide transaction name...");
