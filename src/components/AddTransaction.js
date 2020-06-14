@@ -5,9 +5,11 @@ export const AddTransaction = () => {
     const [text, setText] = useState('');
     const [amount, setAmount] = useState(0);
     const { addTransaction } = useContext(GlobalContext);
+    const { deleteTransaction } = useContext(GlobalContext);
 
     const mySubmit = e =>{
         e.preventDefault();
+        
         if(amount === undefined || amount === ''){
             alert('Enter number value');
             return;
@@ -18,10 +20,18 @@ export const AddTransaction = () => {
             amount:+amount
         }
         var txtTransName = document.getElementById('txtValue');
-        //console.log(checkInput(txtTransName.value));
+        var txtHidden = document.getElementById('txtHidden').value;
+        console.log(txtHidden);
         var result = checkInput(txtTransName.value)
         if( result || result ===undefined ){
-            addTransaction(newTransaction);
+            if(txtHidden !== '' ){
+                deleteTransaction(txtHidden);
+                addTransaction(newTransaction);
+                document.getElementById('txtHidden').value = "";
+            }else{
+                addTransaction(newTransaction);
+            }
+            
         }else{
             alert("Must provide transaction name...");
             txtTransName.focus();
@@ -43,13 +53,14 @@ export const AddTransaction = () => {
                 <div className="form-control">
                 <label htmlFor="text">Enter transaction name</label>
                 <input type="text" id='txtValue' value={text} onChange={(e)=>setText(e.target.value)} placeholder="Pleasea enter name of transaction..." />
+                <input type="hidden" id='txtHidden' value="" hidden="true" />
                 </div>
                 <div className="form-control">
                 <label htmlFor="amount"
                     >Amount <br />
                     (negative - expense, positive - income)</label
                 >
-                <input type="number" value={amount} onChange={(e)=>setAmount(e.target.value)} placeholder="Enter amount..." />
+                <input type="number" id="txtNumber" value={amount} onChange={(e)=>setAmount(e.target.value)} placeholder="Enter amount..." />
                 </div>
                 <button className="btn">Add transaction</button>
             </form>

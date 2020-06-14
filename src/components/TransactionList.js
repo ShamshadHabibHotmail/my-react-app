@@ -8,7 +8,8 @@ export const TransactionList = () => {
     return (
         <>
             <h3>History</h3>
-            <ul className="list">
+            <span hidden={transactions.length>0?true:false} className="only">Please add new transaction</span>
+            <ul className="list">  
                 {transactions.map(transaction=>(<Transaction key={transaction.id} transaction={transaction}/>))}
             </ul>
         </>

@@ -89,12 +89,12 @@ input[type='number'] {
 
 .btn {
   cursor: pointer;
-  background-color: #9c88ff;
+  background-color: #2b0a8593;
   box-shadow: var(--box-shadow);
   color: #fff;
   border: 0;
   display: block;
-  font-size: 16px;
+  font-size: 14px;
   margin: 10px 0 30px;
   padding: 10px;
   width: 100%;
@@ -122,6 +122,10 @@ input[type='number'] {
   margin: 10px 0;
 }
 
+span.only {
+  color: darkgoldenrod;
+  border-right: 5px solid #2eeeee;
+}
 .list li.plus {
   border-right: 5px solid #2ecc71;
 }

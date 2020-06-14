@@ -3,12 +3,22 @@ import {GlobalContext} from '../context/GlobalStates';
 
 
 export const Transaction = ({transaction}) => {
-    const { deleteTransaction } = useContext(GlobalContext)
+    const { deleteTransaction } = useContext(GlobalContext);
     const sign = transaction.amount <0 ?'-':'+'
+
+    const editTransaction = (transaction)=>{
+        // console.log('My Edit '+JSON.stringify(transaction));
+        //{"id":12287586,"text":"First","amount":12}
+
+        let textTrans = document.getElementById('txtValue').value = transaction.text;
+        let textAmount = document.getElementById('txtNumber').value = transaction.amount;
+        let txtHidden = document.getElementById('txtHidden').value = transaction.id;
+        //deleteTransaction(transaction.id);
+    } 
     return (
-        <li className={transaction.amount<0?"minus":"plus"}>
+        <a href="#" onClick={()=>editTransaction(transaction)}><li className={transaction.amount<0?"minus":"plus"}>
                 {transaction.text} <span>{sign}£{Math.abs(transaction.amount)} </span><button 
                 onClick={()=>deleteTransaction(transaction.id)} className="delete-btn">x</button>
-                </li>
+                </li></a>
     )
 }
