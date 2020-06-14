@@ -10,9 +10,6 @@ export const Transaction = ({transaction}) => {
         // console.log('My Edit '+JSON.stringify(transaction));
         //{"id":12287586,"text":"First","amount":12}
 
-        let textTrans = document.getElementById('txtValue').value = transaction.text;
-        let textAmount = document.getElementById('txtNumber').value = transaction.amount;
-        let txtHidden = document.getElementById('txtHidden').value = transaction.id;
         //deleteTransaction(transaction.id);
     } 
     return (
