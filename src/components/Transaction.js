@@ -13,7 +13,7 @@ export const Transaction = ({transaction}) => {
         //deleteTransaction(transaction.id);
     } 
     return (
-        <a href="#" onClick={()=>editTransaction(transaction)}><li className={transaction.amount<0?"minus":"plus"}>
+        <a href="/#" onClick={()=>editTransaction(transaction)}><li className={transaction.amount<0?"minus":"plus"}>
                 {transaction.text} <span>{sign}£{Math.abs(transaction.amount)} </span><button 
                 onClick={()=>deleteTransaction(transaction.id)} className="delete-btn">x</button>
                 </li></a>
